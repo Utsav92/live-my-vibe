@@ -100,7 +100,7 @@ document.querySelectorAll('.reveal').forEach((el) => reveal.observe(el));
 addEventListener('scroll', () => { const y = scrollY; document.documentElement.style.setProperty('--scroll', y); document.getElementById('nav').classList.toggle('solid', y > 40); }, { passive: true });
 
 // ---------------------------------------------------------------- opening an app inside the page
-const stage = document.getElementById('stage'), frame = document.getElementById('frame');
+const stage = document.getElementById('stage'); let frame = document.getElementById('frame');
 function openApp(id, push = true) {
   const a = APPS.find((x) => x.id === id); if (!a) return;
   frame.src = `play.html?app=${a.param}&embed=1`; document.getElementById('stageName').textContent = a.name;
@@ -111,7 +111,8 @@ function openApp(id, push = true) {
 function closeApp(push = true) {
   if (!stage.classList.contains('open')) return;
   stage.classList.remove('open'); document.body.classList.remove('inapp'); renderer.setAnimationLoop(loop);
-  setTimeout(() => { frame.src = 'about:blank'; }, 450);                                  // leaving stops its sound
+  try { frame.contentWindow.postMessage('lmv-close', location.origin); } catch {}          // silence it now
+  const old = frame, fresh = old.cloneNode(false); fresh.src = 'about:blank'; old.replaceWith(fresh); frame = fresh;   // and remove it entirely: nothing can keep playing
   if (push) history.pushState({}, '', location.pathname + location.search);
 }
 document.addEventListener('click', (e) => { const b = e.target.closest('[data-open]'); if (b) { e.preventDefault(); openApp(b.dataset.open); } });

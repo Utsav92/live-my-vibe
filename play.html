@@ -5,7 +5,10 @@
 <title>BodyBeat</title>
 <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 <link rel="stylesheet" href="chaos.css">
-<style>.embed #site{display:none}</style>
+<style>.embed #site{display:none}
+html[data-show] .app{display:none !important}
+html[data-show=body] #app-body,html[data-show=scatter] #app-scatter,html[data-show=chaos] #app-chaos,html[data-show=pandora] #app-pandora,html[data-show=summits] #app-summits{display:block !important}</style>
+<script>(function(){var q=new URLSearchParams(location.search),a=q.get('app')||(/app=scatter/.test(location.hash)?'scatter':'body');a=({migros:'chaos',niagra:'pandora'})[a]||a;if(['body','scatter','chaos','pandora','summits'].indexOf(a)<0)a='body';document.documentElement.setAttribute('data-show',a);if(q.has('embed'))document.documentElement.classList.add('embed');})();</script>
 <link rel="stylesheet" href="pandora.css">
 <link rel="stylesheet" href="summits.css">
 <style>

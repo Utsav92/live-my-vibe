@@ -19,7 +19,7 @@ async function activate(app, { replace = true } = {}) {
   const next = APPS[app]; if (!next) return;
   const prevName = site.mode, prev = APPS[prevName];
   if (prevName !== app && prev.booted) window[prev.api]?.stop?.();                  // pause the app we are leaving
-  site.mode = app;
+  site.mode = app; document.documentElement.setAttribute('data-show', app);   // the page shows only the app in use
   for (const name of order) $(APPS[name].root).classList.toggle('off', name !== app);
   document.querySelectorAll('#site [data-app]').forEach((b) => b.classList.toggle('on', b.dataset.app === app));
   document.title = app === 'scatter' ? 'Scatter · BodyBeat' : app === 'chaos' ? 'Migros · BodyBeat' : app === 'pandora' ? 'Niagra · BodyBeat' : app === 'summits' ? 'Summits · BodyBeat' : 'BodyBeat';
@@ -32,7 +32,9 @@ async function activate(app, { replace = true } = {}) {
 }
 
 document.querySelectorAll('#site [data-app]').forEach((b) => b.addEventListener('click', () => { busy = busy.then(() => activate(b.dataset.app)); }));
-if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embed');   // opened inside Live My Vibe: its own switcher hides
+if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embed');
+// Live My Vibe closing the app: silence everything at once
+addEventListener('message', (e) => { if (e.origin !== location.origin || e.data !== 'lmv-close') return; for (const name of order) if (APPS[name].booted) window[APPS[name].api]?.stop?.(); for (const c of Object.values(audioRegistry)) c.suspend?.(); });   // opened inside Live My Vibe: its own switcher hides
 const wanted = new URLSearchParams(location.search).get('app') || (/\bapp=scatter\b/.test(location.hash) ? 'scatter' : 'body');
 site.mode = APPS[wanted] ? wanted : wanted === 'migros' ? 'chaos' : wanted === 'niagra' ? 'pandora' : 'body';   // ?app=migros opens it too
 for (const name of order) $(APPS[name].root).classList.toggle('off', name !== site.mode);
