@@ -1,0 +1,83 @@
+/* Pandora: every rule scoped to #app-pandora */
+#app-pandora{--ink:#eceae4;--ash:rgba(236,234,228,.55);--faint:rgba(236,234,228,.25);--hair:rgba(236,234,228,.14);--panel:rgba(14,14,16,.82);--bg:#030304;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--font:-apple-system,BlinkMacSystemFont,"Segoe UI Variable Text","Segoe UI",Inter,system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);font:12px/1.4 var(--font);user-select:none;-webkit-user-select:none}
+#app-pandora.white{--ink:#141311;--ash:rgba(20,19,17,.58);--faint:rgba(20,19,17,.3);--hair:rgba(20,19,17,.16);--panel:rgba(238,236,231,.9);--bg:#e9e7e2}
+#app-pandora button,#app-pandora select,#app-pandora input{font:inherit;color:inherit}
+#app-pandora button{background:none;border:0;padding:0;cursor:pointer}
+#app-pandora .pn-mono{font:500 10px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+#app-pandora .pn-cap{font:500 9.5px var(--mono);letter-spacing:.16em;color:var(--ash)}
+#app-pandora #pnGl{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#app-pandora #pnGl:active{cursor:grabbing}
+#app-pandora #pnTicker{position:fixed;top:0;left:0;right:0;height:18px;overflow:hidden;white-space:nowrap;color:var(--faint);font-size:9px;padding:3px 0 0 260px;z-index:4;border-bottom:1px solid var(--hair)}
+#app-pandora #pnTC{position:fixed;top:22px;left:50%;transform:translateX(-50%);display:flex;gap:22px;color:var(--ash);z-index:4;font-size:9.5px}
+#app-pandora #pnTitle{position:fixed;left:26px;top:66px;z-index:5}
+#app-pandora #pnTitle h1{margin:0;font:300 22px var(--font);letter-spacing:.42em}
+#app-pandora #pnTitle p{margin:4px 0 0;color:var(--ash);font-size:9px}
+#app-pandora #pnHead{position:fixed;top:46px;left:50%;transform:translateX(-50%);text-align:center;z-index:4}
+#app-pandora #pnHead b{display:block;font:300 19px var(--font);letter-spacing:.22em}
+#app-pandora #pnHead span{color:var(--ash);font-size:9px}
+#app-pandora #pnPaper{position:fixed;top:24px;right:22px;z-index:5}
+#app-pandora .pn-seg{display:inline-flex;border:1px solid var(--hair)}
+#app-pandora .pn-seg button{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-right:1px solid var(--hair)}
+#app-pandora .pn-seg button:last-child{border-right:0}
+#app-pandora .pn-seg button.on,#app-pandora .pn-btn.on{background:var(--ink);color:var(--bg)}
+#app-pandora .pn-btn{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;border:1px solid var(--hair)}
+#app-pandora .pn-btn.wide{padding:7px 24px}
+#app-pandora .pn-btn .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e2503a;margin-right:7px}
+#app-pandora .pn-panel{background:var(--panel);border:1px solid var(--hair);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+#app-pandora #pnTracks{position:fixed;left:20px;top:112px;width:346px;z-index:6}
+#app-pandora.notracks #pnTracks{display:none}
+#app-pandora .pn-ph{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--hair);gap:10px}
+#app-pandora .pn-ph b{font:500 11px var(--mono);letter-spacing:.18em}
+#app-pandora .pn-ph span{color:var(--ash);font-size:8.5px}
+#app-pandora .pn-trow{display:flex;align-items:center;height:36px;border-bottom:1px solid var(--hair);font:500 11px var(--mono);letter-spacing:.1em}
+#app-pandora .pn-trow.drop{outline:1px dashed var(--ink);outline-offset:-3px}
+#app-pandora .pn-trow>i{width:10px;height:10px;margin:0 10px 0 12px;flex:none}
+#app-pandora .pn-trow .nm{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#app-pandora .pn-trow .nm small{display:block;font-size:8px;color:var(--ash);letter-spacing:.06em}
+#app-pandora .pn-trow button,#app-pandora .pn-trow select{height:100%;min-width:28px;border-left:1px solid var(--hair);font-size:10px;background:none}
+#app-pandora .pn-trow select{border:0;border-left:1px solid var(--hair);padding:0 4px;cursor:pointer}
+#app-pandora .pn-trow select option{color:#000}
+#app-pandora .pn-trow .sq.on{background:var(--ink);color:var(--bg)}
+#app-pandora .pn-trow .sq.wide{padding:0 8px}
+#app-pandora .pn-trow .bpm{font-size:9px;color:var(--ash);padding:0 6px}
+#app-pandora .pn-trow[data-i="6"]{border-top:1px solid var(--hair);margin-top:6px}
+#app-pandora .pn-note{padding:10px 14px;margin:0;color:var(--ash);font-size:8.5px;text-transform:none;letter-spacing:.04em}
+#app-pandora #pnMapWrap{position:fixed;right:22px;top:62px;z-index:5}
+#app-pandora #pnMap{display:grid;grid-template-columns:repeat(4,38px);grid-template-rows:repeat(3,38px);gap:2px}
+#app-pandora .pn-face{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;padding:1px;border:1px solid transparent;cursor:pointer;position:relative}
+#app-pandora .pn-face i{display:block;opacity:.85}
+#app-pandora .pn-face i.play{outline:2px solid var(--ink);opacity:1;z-index:1}
+#app-pandora .pn-face b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 9px var(--mono);color:#fff;text-shadow:0 0 3px #000;pointer-events:none}
+#app-pandora .pn-face.on{border-color:var(--ink)}
+#app-pandora #pnHelp{position:fixed;right:22px;top:196px;text-align:right;color:var(--ash);z-index:4;font-size:9.5px;line-height:1.7}
+#app-pandora #pnInfo{position:fixed;right:22px;top:300px;width:222px;z-index:4}
+#app-pandora #pnSide{display:flex;align-items:baseline;gap:12px;margin:4px 0 10px}
+#app-pandora #pnSide b{font:300 30px Georgia,serif;letter-spacing:0}
+#app-pandora #pnSide #pnStep{margin-left:auto}
+#app-pandora .pn-row{display:flex;justify-content:space-between}
+#app-pandora #pnWBar{height:3px;background:var(--hair);margin:4px 0 10px}
+#app-pandora #pnWBar i{display:block;height:100%;background:var(--ink)}
+#app-pandora #pnNot{color:var(--ash);font-size:9.5px;word-spacing:4px}
+#app-pandora #pnSpec{width:100%;height:30px;display:block;margin:4px 0 10px}
+#app-pandora #pnStats{white-space:pre;color:var(--ash);font-size:8.5px;line-height:1.6;border-top:1px dashed var(--hair);padding-top:8px}
+#app-pandora #pnLegend{position:fixed;left:22px;bottom:96px;display:grid;grid-template-columns:repeat(3,auto);gap:4px 26px;color:var(--ash);font-size:8.5px;z-index:4}
+#app-pandora #pnLegend i{display:inline-block;width:7px;height:7px;margin-right:6px}
+#app-pandora #pnFoot{position:fixed;right:22px;bottom:96px;color:var(--ash);font-size:8.5px;z-index:4}
+#app-pandora.notext .pn-text,#app-pandora.notext #pnTicker,#app-pandora.notext #pnTC,#app-pandora.notext #pnInfo,#app-pandora.notext #pnLegend,#app-pandora.notext #pnFoot{display:none}
+#app-pandora #pnBot{position:fixed;left:14px;right:14px;bottom:12px;height:58px;z-index:7;display:flex;align-items:center;gap:10px;padding:0 14px;background:var(--panel);border:1px solid var(--hair);overflow-x:auto}
+#app-pandora .pn-lab{font:500 10px var(--mono);letter-spacing:.14em;color:var(--ash);display:flex;align-items:center;gap:8px}
+#app-pandora .pn-lab input,#app-pandora .pn-lab select{width:64px;background:transparent;border:1px solid var(--hair);padding:6px 8px;color:var(--ink)}
+#app-pandora .pn-lab select{width:auto}
+#app-pandora .pn-lab select option{color:#000}
+#app-pandora .pn-float{position:fixed;right:22px;bottom:84px;width:330px;z-index:9;display:none}
+#app-pandora .pn-float.open{display:block}
+#app-pandora .pn-lrow{display:flex;align-items:center;gap:8px;padding:7px 14px;border-bottom:1px solid var(--hair);font:500 10px var(--mono);letter-spacing:.1em}
+#app-pandora .pn-lrow span{width:52px}
+#app-pandora .pn-lrow input[type=range]{flex:1;min-width:0;accent-color:var(--ink)}
+#app-pandora .pn-lrow input[type=color]{width:26px;height:20px;border:0;padding:0;background:none}
+#app-pandora .pn-lrow select{background:transparent;border:1px solid var(--hair);padding:3px}
+#app-pandora #pnToast{position:fixed;left:50%;top:92px;transform:translateX(-50%);background:var(--panel);border:1px solid var(--hair);padding:7px 14px;opacity:0;transition:opacity .3s;z-index:20}
+#app-pandora #pnToast.in{opacity:1}
+@media (max-width:1180px){#app-pandora #pnHelp,#app-pandora #pnLegend{display:none}#app-pandora #pnTracks{width:300px}}

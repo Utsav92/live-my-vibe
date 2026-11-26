@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live My Vibe</title>
+<meta name="description" content="Five instruments you can walk into: BodyBeat, Scatter, Migros, Niagra and Summits.">
+<link rel="stylesheet" href="lmv.css">
+</head>
+<body>
+<canvas id="art" aria-hidden="true"></canvas>
+<nav id="nav"><a class="brand" href="#top">live<span>·</span>my<span>·</span>vibe</a><div id="navApps"></div></nav>
+
+<header id="hero">
+  <div class="hero-in">
+    <p class="eyebrow reveal">Five playable worlds · 2026</p>
+    <h1 class="reveal">Live my vibe.</h1>
+    <p class="sub reveal">Five instruments you can walk into.<br>Play a body, a picture, a theory of chaos, a glass cube and a forest at night.</p>
+    <a class="scroll reveal" href="#bodybeat">Explore<i></i></a>
+  </div>
+</header>
+
+<main id="apps"></main>
+
+<footer>
+  <div class="foot-in">
+    <h3>Made to be played.</h3>
+    <p>Every sound is made in the browser, as you play. Headphones help.</p>
+    <p class="small">Live My Vibe · 2026 · Anatomy in BodyBeat: BodyParts3D, © The Database Center for Life Science, CC BY 4.0.</p>
+  </div>
+</footer>
+
+<div id="stage" aria-hidden="true">
+  <div id="stageBar"><button id="back" aria-label="Back to Live My Vibe"><i>←</i>live·my·vibe</button><span id="stageName"></span></div>
+  <iframe id="frame" title="App" allow="autoplay; fullscreen; midi; microphone; camera" src="about:blank"></iframe>
+</div>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script type="module" src="lmv.js"></script>
+</body>
+</html>

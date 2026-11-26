@@ -1,0 +1,10 @@
+node_modules
+.claude-flow
+.swarm
+.impeccable
+*.log
+package-lock.json
+.env*
+.vercel
+
+[OK] Command outcome recorded
