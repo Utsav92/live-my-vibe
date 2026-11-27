@@ -31,6 +31,9 @@ html,body{margin:0;height:100%;background:#02040a;color:var(--text);overflow:hid
 :where(#app-body) input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:0}
 :where(#app-body) select,:where(#app-body) input[type=text],:where(#app-body) input:not([type]){background:rgba(255,255,255,.08);color:var(--text);border:0;border-radius:9px;padding:6px 9px;font:inherit;outline:none}
 :where(#app-body) select:focus,:where(#app-body) input:focus{box-shadow:0 0 0 2px var(--acc-soft)}
+#app-body select{color-scheme:dark}
+#app-body select option,#app-body select optgroup{background:#1c1c1e;color:#f5f5f7}
+#app-body select optgroup{color:#86868b}
 :where(#app-body) .glass{background:var(--glass);-webkit-backdrop-filter:blur(28px) saturate(170%);backdrop-filter:blur(28px) saturate(170%);border:1px solid var(--stroke);border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.07)}
 :where(#app-body) .seg{display:inline-flex;gap:2px;padding:3px;border-radius:12px;background:rgba(255,255,255,.07)}
 :where(#app-body) .seg button{background:transparent;border-radius:9px;padding:5px 12px}
